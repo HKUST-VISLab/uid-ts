@@ -1,91 +1,49 @@
-koa-bodyparser-ts
+uid-ts
 =================
 
-[![Build Status](https://travis-ci.org/HKUST-VISLab/koa-bodyparser-ts.svg?branch=master)](https://travis-ci.org/HKUST-VISLab/koa-bodyparser-ts)
-[![npm version](https://badge.fury.io/js/koa-bodyparser-ts.svg)](https://badge.fury.io/js/koa-bodyparser-ts)
-[![codecov](https://codecov.io/gh/HKUST-VISLab/koa-bodyparser-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/HKUST-VISLab/koa-bodyparser-ts)
-[![David](https://david-dm.org/HKUST-VISLab/koa-bodyparser-ts/status.svg)](https://github.com/HKUST-VISLab/koa-bodyparser-ts)
-[![Greenkeeper badge](https://badges.greenkeeper.io/HKUST-VISLab/koa-bodyparser-ts.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/HKUST-VISLab/uid-ts-ts.svg?branch=master)](https://travis-ci.org/HKUST-VISLab/uid-ts-ts)
+[![npm version](https://badge.fury.io/js/uid-ts-ts.svg)](https://badge.fury.io/js/uid-ts-ts)
+[![codecov](https://codecov.io/gh/HKUST-VISLab/uid-ts-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/HKUST-VISLab/uid-ts-ts)
+[![David](https://david-dm.org/HKUST-VISLab/uid-ts-ts/status.svg)](https://github.com/HKUST-VISLab/uid-ts-ts)
+[![Greenkeeper badge](https://badges.greenkeeper.io/HKUST-VISLab/uid-ts-ts.svg)](https://greenkeeper.io/)
 
+URL and cookie safe UIDs written in Typescript
 
-A body parser for koa, base on [co-body](https://github.com/tj/co-body). support `json`, `form` and `text` type body.
+Create cryptographically secure UIDs safe for both cookie and URL usage.
+This is in contrast to modules such as [rand-token](https://www.npmjs.com/package/rand-token)
+and [uid2](https://www.npmjs.com/package/uid2) whose UIDs are actually skewed
+due to the use of `%` and unnecessarily truncate the UID.
+Use this if you could still use UIDs with `-` and `_` in them.
 
-## Install
+## Installation
 
-`npm install koa-bodyparser-ts --save`
-
-## Usage
-
-```ts
-
-import * as Koa from "koa";
-import bodyParser from "koa-bodyparser-ts";
-
-const app = new Koa();
-app.use(bodyParser());
-
-app.use(async ctx => {
-  // the parsed body will store in ctx.request.body
-  // if nothing was parsed, body will be an empty object {}
-  ctx.body = ctx.request.body;
-});
+```sh
+$ npm install uid-ts
 ```
 
-## Options
-
-* **enableTypes**: parser will only parse when request type hits enableTypes, default is `['json', 'form']`.
-* **encode**: requested encoding. Default is `utf-8` by `co-body`.
-* **formLimit**: limit of the `urlencoded` body. If the body ends up being larger than this limit, a 413 error code is returned. Default is `56kb`.
-* **jsonLimit**: limit of the `json` body. Default is `1mb`.
-* **textLimit**: limit of the `text` body. Default is `1mb`.
-* **strict**: when set to true, JSON parser will only accept arrays and objects. Default is `true`. See [strict mode](https://github.com/cojs/co-body#options) in `co-body`. In strict mode, `ctx.request.body` will always be an object(or array), this avoid lots of type judging. But text body will always return string type.
-* **detectJSON**: custom json request detect function. Default is `null`.
-
-  ```js
-  app.use(bodyparser({
-    detectJSON: function (ctx) {
-      return /\.json$/i.test(ctx.path);
-    }
-  }));
-  ```
-
-* **extendTypes**: support extend types:
-
-  ```js
-  app.use(bodyparser({
-    extendTypes: {
-      json: ['application/x-javascript'] // will parse application/x-javascript type body as a JSON string
-    }
-  }));
-  ```
-
-* **onerror**: support custom error handle, if `koa-bodyparser` throw an error, you can customize the response like:
-
-  ```js
-  app.use(bodyparser({
-    onerror: function (err, ctx) {
-      ctx.throw('body parse error', 422);
-    }
-  }));
-  ```
-
-* **disableBodyParser**: you can dynamic disable body parser by set `ctx.disableBodyParser = true`.
+## API
 
 ```js
-app.use(async (ctx, next) => {
-  if (ctx.path === '/disable') ctx.disableBodyParser = true;
-  await next();
-});
-app.use(bodyparser());
+import { uid, uidSync } from 'uid-ts';
+```
+### uid(byteLength)
+
+Asynchronously create a UID with a specific byte length and return a
+`Promise`. You can also `await` the function.
+
+```js
+const id = await uid(18);
+  // do something with the string
 ```
 
-## Raw Body
+### uidSync(byteLength)
 
-You can access raw request body by `ctx.request.rawBody` after `koa-bodyparser` when:
+A synchronous version of above.
 
-1. `koa-bodyparser` parsed the request body.
-2. `ctx.request.rawBody` is not present before `koa-bodyparser`.
+```js
+var string = uid.sync(18)
+```
 
-## Licences
+## License
 
 [MIT](LICENSE)
