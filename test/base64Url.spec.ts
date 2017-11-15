@@ -1,5 +1,5 @@
 import test from 'ava';
-import { decode, encode, escape, unescape } from '../../src/utils/base64Url';
+import { decode, encode, escape, unescape } from '../src/base64Url';
 
 test('base64Url#encode', (t) => {
     const text = 'vismooc is awesome';

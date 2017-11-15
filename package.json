@@ -28,8 +28,11 @@
     "url": "https://github.com/HKUST-VISLab/uid-ts.git/issues"
   },
   "homepage": "https://github.com/HKUST-VISLab/uid-ts#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^8.0.52"
+  },
   "devDependencies": {
+    "ava": "^0.23.0",
     "nyc": "^11.3.0",
     "shelljs": "^0.7.8",
     "standard-version": "^4.2.0",

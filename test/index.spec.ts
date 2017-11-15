@@ -1,5 +1,5 @@
 import test from 'ava';
-import { uid, uidSync } from '../../src/utils/uid';
+import { uid, uidSync } from '../src';
 
 test('uid', async (t) => {
     let id = await uid(18);
