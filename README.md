@@ -1,11 +1,11 @@
 uid-ts
 =================
 
-[![Build Status](https://travis-ci.org/HKUST-VISLab/uid-ts-ts.svg?branch=master)](https://travis-ci.org/HKUST-VISLab/uid-ts-ts)
-[![npm version](https://badge.fury.io/js/uid-ts-ts.svg)](https://badge.fury.io/js/uid-ts-ts)
-[![codecov](https://codecov.io/gh/HKUST-VISLab/uid-ts-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/HKUST-VISLab/uid-ts-ts)
-[![David](https://david-dm.org/HKUST-VISLab/uid-ts-ts/status.svg)](https://github.com/HKUST-VISLab/uid-ts-ts)
-[![Greenkeeper badge](https://badges.greenkeeper.io/HKUST-VISLab/uid-ts-ts.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/HKUST-VISLab/uid-ts.svg?branch=master)](https://travis-ci.org/HKUST-VISLab/uid-ts)
+[![npm version](https://badge.fury.io/js/uid-ts.svg)](https://badge.fury.io/js/uid-ts)
+[![codecov](https://codecov.io/gh/HKUST-VISLab/uid-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/HKUST-VISLab/uid-ts)
+[![David](https://david-dm.org/HKUST-VISLab/uid-ts/status.svg)](https://github.com/HKUST-VISLab/uid-ts)
+[![Greenkeeper badge](https://badges.greenkeeper.io/HKUST-VISLab/uid-ts.svg)](https://greenkeeper.io/)
 
 URL and cookie safe UIDs written in Typescript
 
