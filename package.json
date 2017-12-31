@@ -29,15 +29,15 @@
   },
   "homepage": "https://github.com/HKUST-VISLab/uid-ts#readme",
   "dependencies": {
-    "@types/node": "^8.0.52"
+    "@types/node": "^8.5.2"
   },
   "devDependencies": {
     "ava": "^0.24.0",
-    "nyc": "^11.3.0",
+    "nyc": "^11.4.1",
     "shelljs": "^0.7.8",
     "standard-version": "^4.2.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.2"
   },
   "ava": {
     "files": [
